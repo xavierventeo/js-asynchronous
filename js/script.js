@@ -1,4 +1,4 @@
-const api_key = "b5138e06a3a9125b8c326498bbeae997";
+const api_key = "put here your own API-KEY";
 
 const getMovieHtml = movie => {
     return `
