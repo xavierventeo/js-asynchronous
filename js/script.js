@@ -99,12 +99,11 @@ const getFindMovies = async () => {
 const getMovieCreditsHtml = credits => {    
     let creditsHtml = "";
     let i = 0;
-
     while (i < credits.length) {
         let actor = credits[i];
         i++;
         let splitChar = i < credits.length ? `,`  : ``;
-        creditsHtml += `${actor.character}${splitChar}`;
+        creditsHtml += `${actor.name}${splitChar}`;
     }
     return creditsHtml;
 }
