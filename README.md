@@ -30,7 +30,7 @@ Operations called to TheMovieDB API:
 ```bash
 • Clone or download the repository.
 • Register to https://www.themoviedb.org/ and in the API Section generate your own API-KEY
-• In the project, edit script.js and copy your API-KEY to the 'const api_key'
+• In the project, edit properties.js and copy your API-KEY to the 'const api_key'
 • You are ready! Browse index.html file
 ```
 
