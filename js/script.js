@@ -1,3 +1,5 @@
+const api_key = "b5138e06a3a9125b8c326498bbeae997";
+
 const getMovieHtml = movie => {
     return `
     <div class="movie" onclick="getMovieDetailed(${movie.id})">
@@ -38,7 +40,7 @@ const getMovieDetailedHtml = (movie) => {
 
 //Utilizamos Promesas y axios
 const getMovieDetailed = movie_id => {
-    axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES`)
+    axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${api_key}&language=es-ES`)
     .then (res => {
         const movie = res.data;
         document.querySelector('div.movies').innerHTML = getMovieDetailedHtml(movie);
@@ -48,7 +50,7 @@ const getMovieDetailed = movie_id => {
 
 //Utilizamos Promesas y fetch: Fetch siempre devuelve una promesa
 const getPopularMovies = () => {
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES')
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=es-ES`)
     .then(res=>res.json())
     .then(res=> {
         const movies = res.results;
@@ -61,7 +63,7 @@ const getPopularMovies = () => {
 //Utilizamos Async / await y axions
 const getLatestMovies = async () => {
     try {
-        const res = await axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES');
+        const res = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}&language=es-ES`);
         const movies = res.data.results;
         renderMovies(movies);
     } catch (error) {
@@ -71,7 +73,7 @@ const getLatestMovies = async () => {
 
 const getSimilarMovies = async (movie_id) => {
     try {
-        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/similar?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES`);
+        const res = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/similar?api_key=${api_key}&language=es-ES`);
         const movies = res.data.results;
         console.log(movies);
         renderMovies(movies);
@@ -86,7 +88,7 @@ const getSimilarMovies = async (movie_id) => {
 const getFindMovies = async () => {
     try {
         const searchCriteria = document.getElementById("search").value;
-        const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES&query=${searchCriteria}`);
+        const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=es-ES&query=${searchCriteria}`);
         const movies = res.data.results;
         renderMovies(movies);
     } catch (error) {
@@ -110,7 +112,7 @@ const getMovieCreditsHtml = credits => {
 
 //Utilizamos Promesas y axios
 const getMovieCredits = movie_id => {
-    axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES`)
+    axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${api_key}&language=es-ES`)
     .then (res => {
         const credits = res.data.cast;
         document.getElementById('credits').innerHTML = getMovieCreditsHtml(credits);
