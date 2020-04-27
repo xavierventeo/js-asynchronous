@@ -27,7 +27,12 @@ Operations called to TheMovieDB API:
 
 ## Getting Started
 
-Clone or download the repository and browse index.html file.
+```bash
+• Clone or download the repository.
+• Register to https://www.themoviedb.org/ and in the API Section generate your own API-KEY
+• In the project, edit script.js and copy your API-KEY to the 'const api_key'
+• You are ready! Browse index.html file
+```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
